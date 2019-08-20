@@ -19,13 +19,13 @@ produces:
   - application/json
 paths:
   /hello:
-    # binds a127 app logic to a route
+    # binds a127 app logic to a route  (Definimos el controlador)
     x-swagger-router-controller: hello_world
-    get:
+    get: #La operación get será implementada con el método hello
       description: Returns 'Hello' to the caller
-      # used as the method name of the controller
-      operationId: hello
-      parameters:
+      # used as the method name of the controller (La operación get será implementada con el método hello)
+      operationId: hello 
+      parameters: #Parametros de entrada
         - name: name
           in: query
           description: The name of the person to whom to say hello
