@@ -1,6 +1,6 @@
-#Notas swagger
-
-Contenido obtenido de [enlace}( https://medium.com/@diegopm2000/creando-un-api-rest-con-swagger-node-c880bdac04a5 )
+#Notas swagger  
+Contenido obtenido de:  
+Creando un API REST con Swagger Node (https://medium.com/@diegopm2000/creando-un-api-rest-con-swagger-node-c880bdac04a5) 
 
 ## Qué es REST  
 REST (Representational State Transfer) es un estilo de arquitectura de software, que podríamos definir cómo:
@@ -33,6 +33,49 @@ Nos creará la siguiente estructura de carpetas:
 *  En la carpeta config, podremos definir la configuración específica de la aplicación.
 *  Tenemos también la típica carpeta node_modules de todo proyecto de Node que use librerías externas.
 *  Los test unitarios, lógicamente los habremos de poner en la carpeta test.
-*  Además, en la raíz del proyecto tenemos el fichero habitual package.json y un fichero app.js típico de Express, que es el framework web que hemos decidido utilizar.
+*  Además, en la raíz del proyecto tenemos el fichero habitual package.json y un fichero app.js típico de Express, que es el framework web que hemos decidido utilizar.  
 
+Guía de códigos HTTP para API Rest: buenas prácticas  
 
+<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>HTTP Verb</th>
+								<th>CRUD</th>
+								<th>Entire Collection (e.g. /customers)</th>
+								<th>Specific Item (e.g. /customers/{id})</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>POST</td>
+								<td>Create</td>
+								<td>201 (Created), 'Location' header with link to /customers/{id} containing new ID.</td>
+								<td>404 (Not Found), 409 (Conflict) if resource already exists..</td>
+							</tr>
+							<tr>
+								<td>GET</td>
+								<td>Read</td>
+								<td>200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists.</td>
+								<td>200 (OK), single customer. 404 (Not Found), if ID not found or invalid.</td>
+							</tr>
+							<tr>
+								<td>PUT</td>
+								<td>Update/Replace</td>
+								<td>405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection.</td>
+								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
+							</tr>
+							<tr>
+								<td>PATCH</td>
+								<td>Update/Modify</td>
+								<td>405 (Method Not Allowed), unless you want to modify the collection itself.</td>
+								<td>200 (OK) or 204 (No Content).  404 (Not Found), if ID not found or invalid.</td>
+							</tr>
+							<tr>
+								<td>DELETE</td>
+								<td>Delete</td>
+								<td>405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.</td>
+								<td>200 (OK).  404 (Not Found), if ID not found or invalid.</td>
+							</tr>
+						</tbody>
+					</table>
