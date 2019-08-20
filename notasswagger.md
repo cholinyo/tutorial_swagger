@@ -15,10 +15,10 @@ Vamos a usar el módulo de Swagger para NodeJS como herramienta principal para d
 
 Necesitamos instalar Swagger en nuestro sistema de forma global, usando el gestor de paquetería de NodeJS, para ello, desde un terminal de nuestro ordenador, escribiremos:  
 
-  $ npm install -g swagger  
-Comprobamos que se ha instalado correctamente:  
-  $ swagger — version  
-  0.7.5  
+    $ npm install -g swagger   
+  Comprobamos que se ha instalado correctamente:  
+      $ swagger — version  
+      0.7.5  
 
 
 
