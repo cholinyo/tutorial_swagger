@@ -10,5 +10,16 @@ REST (Representational State Transfer) es un estilo de arquitectura de software,
 4.  Cada recurso puede tener múltiples representaciones (por ejemplo se podría representar mediante json, yaml, o xml).  
 5.  El protocolo de comunicación se considera sin estado (cada operación con el recurso se trata de forma totalmente aislada e independiente).    
 
+## Instalación de Swagger Node
+Vamos a usar el módulo de Swagger para NodeJS como herramienta principal para definir nuestro API Rest, y poder probarla sin tener en cuenta inicialmente ciertos detalles de implementación.  
+
+Necesitamos instalar Swagger en nuestro sistema de forma global, usando el gestor de paquetería de NodeJS, para ello, desde un terminal de nuestro ordenador, escribiremos:  
+
+  $ npm install -g swagger  
+Comprobamos que se ha instalado correctamente:  
+  $ swagger — version  
+  0.7.5  
+
+
 
 
