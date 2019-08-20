@@ -17,6 +17,7 @@ Necesitamos instalar Swagger en nuestro sistema de forma global, usando el gesto
 
     $ npm install -g swagger   
   Comprobamos que se ha instalado correctamente:  
+  
       $ swagger — version  
       0.7.5  
 
