@@ -55,8 +55,14 @@ Campos fichero swagger.yml
 
 ### api/controllers/hello_world.js Implementación del API
 
-## Guía de códigos HTTP para API Rest: buenas prácticas  
+## Guía de códigos HTTP para API Rest: buenas prácticas
 
+## Editor de swagger
+
+Con el comando:  
+    $ swagger project edit
+
+![Texto alternativo](/images/modo_editor.PNG)
 <pre>
     <table class="table table-striped table-bordered">
 						<thead>
