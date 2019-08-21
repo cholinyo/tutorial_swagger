@@ -1,7 +1,5 @@
 # Notas swagger
 
-----
-
 Contenido obtenido de:  
 * Creando un API REST con Swagger Node (https://medium.com/@diegopm2000/creando-un-api-rest-con-swagger-node-c880bdac04a5) 
 
@@ -42,9 +40,25 @@ Nos creará la siguiente estructura de carpetas:
 * Los test unitarios, lógicamente los habremos de poner en la carpeta test.
 * Además, en la raíz del proyecto tenemos el fichero habitual package.json y un fichero app.js típico de Express, que es el framework web que hemos decidido utilizar.  
 
+Podemos levantar swagger en modo mock para que nos permita probar la api.
+    $ swagger project start -m
+## Ficheros importantes
+
+## api/swagger/swagger.yml: Fichero de configuración
+
+Campos fichero swagger.yml
+* x-swagger-router-controller definimos el nombre del controlador que se encargará de procesar la petición /hello.
+* Además hemos definido con operationId que en el controlador, la operación get será implementada en el método hello.
+* Usamos la zona de parameters para definir los parámetros de entrada, que en este caso es sólo uno, ‘name’, viene por la querystring, no es obligatorio y es de tipo cadena.
+* En la zona de responses, indicamos que si devolveremos el código http 200 devolveremos la referencia en la zona de definitions (situada más abajo) donde definimos la estructura de los datos devueltos.
+* También tenemos una zona de default para otro caso, definiendo un ErrorResponse, también en la zona de definitions.
+
+### api/controllers/hello_world.js Implementación del API
+
 ## Guía de códigos HTTP para API Rest: buenas prácticas  
 
-<table class="table table-striped table-bordered">
+<pre>
+    <table class="table table-striped table-bordered">
 						<thead>
 							<tr>
 								<th>HTTP Verb</th>
@@ -84,5 +98,5 @@ Nos creará la siguiente estructura de carpetas:
 								<td>405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.</td>
 								<td>200 (OK).  404 (Not Found), if ID not found or invalid.</td>
 							</tr>
-						</tbody>
-					</table>
+                        </tbody>
+                    </table>
