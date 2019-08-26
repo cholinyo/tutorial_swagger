@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: "0.0.1"
-  title: Hello World App
+  title: Game Collector App
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
@@ -20,11 +20,11 @@ produces:
 paths:
   /hello:
     # binds a127 app logic to a route  (Definimos el controlador)
-    x-swagger-router-controller: hello_world
+    x-swagger-router-controller: gamesystem.controller
     get: #La operación get será implementada con el método hello
-      description: Returns 'Hello' to the caller
+      description: get the game system list
       # used as the method name of the controller (La operación get será implementada con el método hello)
-      operationId: hello 
+      operationId: getGameSystems 
       parameters: #Parametros de entrada
         - name: name
           in: query
@@ -36,7 +36,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
+            $ref: "#/definitions/GetGameSystemListResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -46,12 +46,41 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  HelloWorldResponse:
-    required:
-      - message
+  GameSystem:
+    type: object
     properties:
-      message:
+      name:
         type: string
+        description: Name of the Game System
+      description:
+        type: string
+        description: Description of the Game System
+    required:
+      - name
+      - description
+  GetGameSystemResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      name:
+        type: string
+        description: Name of the Game System
+      description:
+        type: string
+        description: Description of the Game System
+    required:
+      - name
+      - description
+  GetGameSystemListResponse:
+    required:
+      - gamesystems
+    properties:
+      gamesystems:
+        type: array
+        items:
+          $ref: "#/definitions/GetGameSystemResponse"
   ErrorResponse:
     required:
       - message
